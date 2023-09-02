@@ -21,4 +21,6 @@ cargo stylus check
 # Uncompressed WASM size: 67.8 KB
 # Compressed WASM size to be deployed onchain: 23.7 KB
 
+# add private key to .env
+
 ```
