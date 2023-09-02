@@ -14,9 +14,11 @@ Follow the guide here: https://docs.arbitrum.io/stylus/stylus-quickstart
 Here I log the steps as I build:
 
 ```bash
-cargo stylus new --minimal ERC20-Rust
+cargo stylus new --minimal erc20_rust
 #  Copy code from https://github.com/OffchainLabs/stylus-sdk-rs/tree/stylus/examples/erc20
-cd ERC20-Rust
+cd erc20_rust
 cargo stylus check
+# Uncompressed WASM size: 67.8 KB
+# Compressed WASM size to be deployed onchain: 23.7 KB
 
 ```

@@ -3,16 +3,6 @@
 version = 3
 
 [[package]]
-name = "ERC20-Rust"
-version = "0.1.0"
-dependencies = [
- "alloy-primitives",
- "alloy-sol-types",
- "stylus-sdk",
- "wee_alloc",
-]
-
-[[package]]
 name = "aho-corasick"
 version = "1.0.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -250,6 +240,16 @@ name = "dunce"
 version = "1.0.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "56ce8c6da7551ec6c462cbaf3bfbc75131ebbfa1c944aeaa9dab51ca1c5f0c3b"
+
+[[package]]
+name = "erc20_rust"
+version = "0.1.0"
+dependencies = [
+ "alloy-primitives",
+ "alloy-sol-types",
+ "stylus-sdk",
+ "wee_alloc",
+]
 
 [[package]]
 name = "errno"
