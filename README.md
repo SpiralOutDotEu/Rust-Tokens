@@ -15,4 +15,8 @@ Here I log the steps as I build:
 
 ```bash
 cargo stylus new --minimal ERC20-Rust
+#  Copy code from https://github.com/OffchainLabs/stylus-sdk-rs/tree/stylus/examples/erc20
+cd ERC20-Rust
+cargo stylus check
+
 ```
