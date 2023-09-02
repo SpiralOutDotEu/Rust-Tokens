@@ -14,4 +14,5 @@ Follow the guide here: https://docs.arbitrum.io/stylus/stylus-quickstart
 Here I log the steps as I build:
 
 ```bash
+cargo stylus new --minimal ERC20-Rust
 ```
