@@ -89,25 +89,6 @@ impl<T: Erc20Params> Erc20<T> {
         });
     }
 
-    pub fn burn(&mut self, address: Address, value: U256) -> Result<(), Erc20Error> {
-        let mut balance = self.balances.setter(address);
-        let old_balance = balance.get();
-        if old_balance < value {
-            return Err(Erc20Error::InsufficientBalance(InsufficientBalance {
-                from: address,
-                have: old_balance,
-                want: value,
-            }));
-        }
-        balance.set(old_balance - value);
-        self.total_supply.set(self.total_supply.get() - value);
-        evm::log(Transfer {
-            from: address,
-            to: Address::ZERO,
-            value,
-        });
-        Ok(())
-    }
 }
 
 // These methods are external to other contracts

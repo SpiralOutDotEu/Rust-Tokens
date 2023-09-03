@@ -2,29 +2,29 @@
 extern crate alloc;
 
 use crate::erc20::{Erc20, Erc20Params};
-use alloc::{string::String, vec::Vec};
-use stylus_sdk::{alloy_primitives::U256, call, msg, prelude::*};
+use alloc::vec::Vec;
+use stylus_sdk::{alloy_primitives::U256, msg, prelude::*};
 
 #[global_allocator]
 static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
 
 mod erc20;
 
-struct WethParams;
+struct RustTokenParams;
 
 /// Immutable definitions
-impl Erc20Params for WethParams {
-    const NAME: &'static str = "Wrapped Ether Example";
-    const SYMBOL: &'static str = "WETH";
+impl Erc20Params for RustTokenParams {
+    const NAME: &'static str = "Rust ERC20 Token";
+    const SYMBOL: &'static str = "R20T";
     const DECIMALS: u8 = 18;
 }
 
 // The contract
 sol_storage! {
-    #[entrypoint] // Makes Weth the entrypoint
-    struct Weth {
-        #[borrow] // Allows erc20 to access Weth's storage and make calls
-        Erc20<WethParams> erc20;
+    #[entrypoint] // Makes Rtoken the entrypoint
+    struct Rtoken {
+        #[borrow] // Allows erc20 to access Rtoken's storage and make calls
+        Erc20<RustTokenParams> erc20;
     }
 }
 
@@ -36,30 +36,11 @@ sol_interface! {
 }
 
 #[external]
-#[inherit(Erc20<WethParams>)]
-impl Weth {
-    #[payable]
-    pub fn deposit(&mut self) -> Result<(), Vec<u8>> {
-        self.erc20.mint(msg::sender(), msg::value());
+#[inherit(Erc20<RustTokenParams>)]
+impl Rtoken {
+    pub fn mint(&mut self) -> Result<(), Vec<u8>> {
+        let amount = U256::from(10*10*18);
+        self.erc20.mint(msg::sender(), amount);
         Ok(())
-    }
-
-    pub fn withdraw(&mut self, amount: U256) -> Result<(), Vec<u8>> {
-        self.erc20.burn(msg::sender(), amount)?;
-
-        // send the user their funds
-        call::transfer_eth(self, msg::sender(), amount)
-    }
-
-    // sums numbers
-    pub fn sum(values: Vec<U256>) -> Result<(String, U256), Vec<u8>> {
-        Ok(("sum".into(), values.iter().sum()))
-    }
-
-    // calls the sum() method from the interface
-    pub fn sum_with_helper(&self, helper: IMath, values: Vec<U256>) -> Result<U256, Vec<u8>> {
-        let (text, sum) = helper.sum(self, values)?;
-        assert_eq!(&text, "sum");
-        Ok(sum)
     }
 }
