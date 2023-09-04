@@ -39,7 +39,7 @@ sol_interface! {
 #[inherit(Erc20<RustTokenParams>)]
 impl Rtoken {
     pub fn mint(&mut self) -> Result<(), Vec<u8>> {
-        let amount = U256::from(10*10*18);
+        let amount = U256:: from(10*((10u64).pow(18)));
         self.erc20.mint(msg::sender(), amount);
         Ok(())
     }
