@@ -53,7 +53,7 @@ const ConnectWallet = ({ onWalletConnect }) => {
           window.location.reload(false);
         });
 
-        await window.ethereum.on('networkChanged', function (accounts) {
+        await window.ethereum.on('chainChanged', function (accounts) {
           // Time to reload your interface with accounts[0]!
           setIsSwitchingNetwork(true);
           setIsConnected(false);

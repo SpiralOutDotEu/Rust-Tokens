@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useState } from 'react';
 import ConnectWallet from './components/ConnectWallet';
+import MintTokens from './components/MintTokens';
 
 function App() {
   const [isWalletConnected, setWalletConnected] = useState(false);
@@ -15,6 +16,7 @@ function App() {
       {isWalletConnected && (
         <>
         all ok, go on
+        <MintTokens></MintTokens>
           {/* <MintTokens />
           <TransactionHistory />
           <TokenBalance /> */}
