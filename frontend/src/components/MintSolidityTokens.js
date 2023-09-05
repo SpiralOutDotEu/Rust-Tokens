@@ -1,19 +1,16 @@
 import React, { useState } from 'react';
 import { ethers } from 'ethers';
+import { SOLIDITY_TOKEN_ADDRESS } from './constants'
 
-// Import ABI and address from './rust_erc20.sol' (Update with your actual import path)
-// import { Erc20 } from './rust_erc20.sol';
 var abi = [
     "function mint()",
 ];
-const TOKEN_ADDRESS = '0x29652ab1670a6140667e771ee15fe9eb53515969'
+const TOKEN_ADDRESS = SOLIDITY_TOKEN_ADDRESS;
 
 
-const provider = new ethers.BrowserProvider(window.ethereum); // Replace with your Ethereum JSON-RPC URL
-const signer = await provider.getSigner();
-const contract = new ethers.Contract(TOKEN_ADDRESS, abi, signer);
 
-const MintTokens = () => {
+
+const MintSolidityTokens = () => {
     const [isWaiting, setIsWaiting] = useState(false);
     const [transactionHash, setTransactionHash] = useState('');
     const [error, setError] = useState('');
@@ -21,6 +18,9 @@ const MintTokens = () => {
     const handleMintTokens = async () => {
         setIsWaiting(true);
         setError('');
+        const provider = new ethers.BrowserProvider(window.ethereum); // Replace with your Ethereum JSON-RPC URL
+        const signer = await provider.getSigner();
+        const contract = new ethers.Contract(TOKEN_ADDRESS, abi, signer);
 
         try {
             // Call the mint function (assuming it's a public function without parameters)
@@ -85,11 +85,11 @@ const MintTokens = () => {
                 </button>
             ) : (
                 <button onClick={handleMintTokens} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                    Mint Tokens
+                    Mint Solidity Tokens
                 </button>
             )}
         </div>
     );
 };
 
-export default MintTokens;
+export default MintSolidityTokens;

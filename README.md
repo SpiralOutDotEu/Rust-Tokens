@@ -54,5 +54,19 @@ cargo stylus deploy \
 # 
 # Contract token at https://stylus-testnet-explorer.arbitrum.io/address/0xE41aE9376E984D117D273d8386E90F278A0860B4
 
+# Generate a front end to mint tokens
+npx create-react-app
+
+# add wallet connect components and mint function
+
+# Create a forge project for classic solidity ERC20 token
+forge init --no-git --vscode erc20_solidity
+
+# Deploy in Arbitrum Stylus
+forge create --rpc-url https://stylus-testnet.arbitrum.io/rpc \
+--interactive  src/SolidityERC20Token.sol:SolidityERC20Token \
+
+# Deployed to: 0x4a0Aa1d4d3f679A91Beea81722b83CF5A9e83056
+# Transaction hash: 0xdfe7847807d330627e1db7981b9f16dadaea13d47ac7a4417301f25339ea82e7
 
 ```

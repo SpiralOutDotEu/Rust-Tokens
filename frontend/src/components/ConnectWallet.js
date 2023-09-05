@@ -12,9 +12,25 @@ const ConnectWallet = ({ onWalletConnect }) => {
   const [disconnecting, setDisconnecting] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
 
+  // useEffect(() => {
+  //   // Check if the wallet is already connected when the component mounts
+  //   if (window?.ethereum && window?.ethereum?.selectedAddress) {
+  //     const web3Instance = new Web3(window.ethereum);
+  //     const selectedAddress = window.ethereum.selectedAddress;
+      
+  //     setWeb3(web3Instance);
+  //     setAccount(selectedAddress);
+  //     setIsConnected(true);
+  //   }
+  // }, []);
+
   async function connectWallet() {
     setIsConnecting(true);
     setIsSwitchingNetwork(false);
+
+    if (!window.ethereum) {
+      alert("You need an ethereum compatible wallet to proceed")
+    }
 
     if (window.ethereum) {
       try {
@@ -85,7 +101,7 @@ const ConnectWallet = ({ onWalletConnect }) => {
   };
 
   const confirmDisconnect = async () => {
-    if (window.ethereum && isConnected) {
+    if (window?.ethereum && isConnected) {
       try {
         await window.ethereum.request({
           method: 'eth_requestAccounts',
@@ -105,12 +121,11 @@ const ConnectWallet = ({ onWalletConnect }) => {
   return (
     <div>
       {isConnected ? (
-        <div className="relative inline-block text-left">
+        <div className="relative inline-block text-left ">
           <button
             onClick={() => setShowDropdown(!showDropdown)}
-            className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ${
-              disconnecting ? 'cursor-not-allowed' : ''
-            }`}
+            className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ${disconnecting ? 'cursor-not-allowed' : ''
+              }`}
           >
             {disconnecting
               ? 'Disconnecting...'
@@ -131,15 +146,14 @@ const ConnectWallet = ({ onWalletConnect }) => {
         <button
           onClick={connectWallet}
           disabled={isConnecting || isSwitchingNetwork}
-          className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ${
-            isConnecting || isSwitchingNetwork ? 'cursor-not-allowed' : ''
-          }`}
+          className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ${isConnecting || isSwitchingNetwork ? 'cursor-not-allowed' : ''
+            }`}
         >
           {isConnecting
             ? 'Connecting...'
             : isSwitchingNetwork
-            ? 'Switching networks...'
-            : 'Connect Wallet'}
+              ? 'Switching networks...'
+              : 'Connect Wallet'}
         </button>
       )}
     </div>

@@ -1,4 +1,8 @@
-export const TOKEN_ADDRESS = '0x29652ab1670a6140667e771ee15fe9eb53515969';
-export const TOKEN_SYMBOL = 'R20T';
-export const TOKEN_DECIMALS = 18;
-export const TOKEN_IMAGE_URL = 'URL to Token Image';
+export const RUST_TOKEN_ADDRESS = '0x29652ab1670a6140667e771ee15fe9eb53515969';
+export const RUST_TOKEN_SYMBOL = 'R20T';
+export const RUST_TOKEN_DECIMALS = 18;
+export const RUST_TOKEN_IMAGE_URL = 'URL to Token Image';
+export const SOLIDITY_TOKEN_ADDRESS = '0x4a0Aa1d4d3f679A91Beea81722b83CF5A9e83056';
+export const SOLIDITY_TOKEN_SYMBOL = 'S20T';
+export const SOLIDITY_TOKEN_DECIMALS = 18;
+export const SOLIDITY_TOKEN_IMAGE_URL = 'URL to Token Image';
