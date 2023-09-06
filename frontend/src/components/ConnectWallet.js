@@ -129,7 +129,7 @@ const ConnectWallet = ({ onWalletConnect }) => {
           >
             {disconnecting
               ? 'Disconnecting...'
-              : `Connected: ${account.slice(0, 4)}...${account.slice(-4)}`}
+              : `Connected: ${account?.slice(0, 4)}...${account?.slice(-4)}`}
           </button>
           {showDropdown && (
             <div className="absolute mt-2 py-2 w-48 bg-white border rounded shadow-xl">
