@@ -19,7 +19,7 @@ function App() {
         RUST Tokens 0.1
       </header>
       <img
-        src="/rustERC20tokens in arbitrum.png"
+        src="/rusterc20.png"
         alt="Crypto"
         className="max-w-md w-full rounded-lg shadow-lg mb-8"
       />
@@ -31,7 +31,7 @@ function App() {
         <p className="text-lg text-gray-400 mt-4">
           Mint tokens and be a part of our journey. To learn more, visit our{' '}
           <a
-            href="https://github.com/your-github"
+            href="https://github.com/SpiralOutDotEu/Rust-Tokens"
             target="_blank"
             rel="noopener noreferrer"
             className="text-indigo-400 hover:underline"
@@ -40,7 +40,7 @@ function App() {
           </a>{' '}
           or follow us on{' '}
           <a
-            href="https://twitter.com/your-twitter"
+            href="https://twitter.com/Jumaru_Igano"
             target="_blank"
             rel="noopener noreferrer"
             className="text-indigo-400 hover:underline"
