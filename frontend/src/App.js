@@ -25,11 +25,12 @@ function App() {
       />
       <div className="max-w-3xl text-center mb-8">
         <p className="text-lg text-gray-400">
+          Offchain Labs, the team behind Ethereum layer-2 scaling network Arbitrum, has launched the testnet for Arbitrum Stylus, a new programming environment that enables developers to write smart contracts in Rust, C, and C++.
           Explore the world of smart contracts with RUST Tokens. Join our
           experiment to compare Rust and Solidity.
         </p>
         <p className="text-lg text-gray-400 mt-4">
-          Mint tokens and be a part of our journey. To learn more, visit our{' '}
+          Mint tokens FREE and be a part of our journey. To check the source code, visit our{' '}
           <a
             href="https://github.com/SpiralOutDotEu/Rust-Tokens"
             target="_blank"
@@ -47,7 +48,7 @@ function App() {
           >
             Twitter
           </a>
-          .
+          for updates and more.
         </p>
       </div>
 
