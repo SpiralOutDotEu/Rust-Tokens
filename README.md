@@ -1,5 +1,9 @@
 # Arbitrum Stylus Rust Tokens
 
+Mint you own Arbitrum Stylus Rust Tokens: [Rust Tokens Website](https://rust-tokens.vercel.app/)
+
+![Arbitrum Stylus Rust Tokens](https://github.com/SpiralOutDotEu/Rust-Tokens/blob/d107254c17c2dd19bb3a5749085616c2e5101fac/frontend/public/rustERC20tokens%20in%20arbitrum.png)
+
 ## Introduction
 This repo is an exploration on building tokens with Rust for Arbitrum Stylus network.
 
